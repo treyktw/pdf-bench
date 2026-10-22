@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-bench"
+version = "0.1.0"
+description = "Python half of a Python-vs-Rust PDF extraction benchmark (PyMuPDF + pdfplumber + optional Tesseract OCR)."
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+  "pymupdf>=1.25.0",
+  "pdfplumber>=0.11.0",
+  "pillow>=10.4.0",
+  "pytesseract>=0.3.10",
+  "requests>=2.32.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "reportlab>=4.2.0"]
+
+[project.scripts]
+pdf-extract-python = "pdf_bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

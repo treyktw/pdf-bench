@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+build/
+dist/
+
+# Rust
+target/
+
+# Local PDFium from scripts/fetch-pdfium.sh
+.pdfium/
+
+# PDFs: only the committed synthetic fixture is allowed
+*.pdf
+!fixtures/sample.pdf
+
+.DS_Store
+*.log
+.env
+.env.*
+
+# Scaling ladder from `make fixtures-long` (large; never commit)
+fixtures/generated/
